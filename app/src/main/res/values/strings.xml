@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CustomMP3PlayerWidget</string>
+    <string name="strint_title">Title</string>
+    <string name="string_album_title">Album</string>
+    <string name="string_artist">Artist</string>
+    <string name="string_genre">Genre</string>
+</resources>

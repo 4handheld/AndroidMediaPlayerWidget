@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CustomMP3Player</string>
+    <string name="string_stop">Stop</string>
+    <string name="string_rw">RW</string>
+    <string name="string_ffw">FFW</string>
+    <string name="string_play">Play</string>
+    <string name="string_pause">Pause</string>
+    <string name="string_next">NEXT</string>
+    <string name="string_prev">PREV</string>
+    <string name="string_time_elasped">Elasped Time</string>
+    <string name="string_time_total">Total Time</string>
+</resources>

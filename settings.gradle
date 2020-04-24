@@ -1,0 +1,2 @@
+include ':app', ':custommp3player'
+include ':app:custommp3library'

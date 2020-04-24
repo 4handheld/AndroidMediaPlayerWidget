@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CustomMP3Player</string>
+    <string name="string_stop">Halt</string>
+    <string name="string_rw">zuruckspulen</string>
+    <string name="string_ffw">schnell vorwarts</string>
+    <string name="string_play">abspielen</string>
+    <string name="string_pause">Pause</string>
+    <string name="string_next">Nachster</string>
+    <string name="string_prev">Bischrige</string>
+    <string name="string_time_elasped">Verstrichene Zeit</string>
+    <string name="string_time_total">Gesamt Zeit</string>
+</resources>

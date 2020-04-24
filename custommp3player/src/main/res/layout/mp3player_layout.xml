@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import alias="MP3STATE" type="josephnwanna.com.custommp3player.prefab.BasicMP3PlayerPrefab.MP3PlayerState" />
+        <variable
+            name="mp3view"
+            type="josephnwanna.com.custommp3player.ui.MP3PlayerView" />
+
+    </data>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="5dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@{mp3view.observer.trackTitle}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{mp3view.observer.albumTitle}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{mp3view.observer.artistName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{mp3view.observer.audioTitle}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/btn_bg"
+                android:drawableStart="@android:drawable/ic_media_next"
+                android:onClick="@{()->mp3view.next()}"
+                android:text="@string/string_next"
+                android:textColor="@android:color/holo_purple"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/prev" />
+
+            <Button
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="2"
+                android:background="@drawable/btn_bg"
+                android:drawableStart="@android:drawable/ic_media_previous"
+                android:onClick="@{()->mp3view.prev()}"
+                android:text="@string/string_prev"
+                android:textColor="@android:color/holo_purple"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:drawableStart="@{mp3view.observer.playerState.equals(MP3STATE.PLAYING) ? @android:drawable/ic_media_pause : @android:drawable/ic_media_play }"
+                android:onClick="@{()->mp3view.playOrPause()}"
+                android:text="@{mp3view.observer.playerState.equals(MP3STATE.PLAYING) ? @string/string_pause : @string/string_play }"
+                android:textColor="@android:color/holo_purple"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/stop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/prev" />
+
+            <Button
+                android:id="@+id/stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:onClick="@{()->mp3view.stop()}"
+                android:text="@string/string_stop"
+                android:textColor="@android:color/holo_purple"
+                app:layout_constraintEnd_toStartOf="@+id/rw"
+                app:layout_constraintStart_toEndOf="@+id/play"
+                app:layout_constraintTop_toTopOf="@+id/play" />
+
+            <Button
+                android:id="@+id/rw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:drawableStart="@android:drawable/ic_media_rew"
+                android:onClick="@{()->mp3view.rewind()}"
+                android:text="@string/string_rw"
+                android:textColor="@android:color/holo_purple"
+                app:layout_constraintEnd_toStartOf="@+id/ffw"
+                app:layout_constraintStart_toEndOf="@+id/stop"
+                app:layout_constraintTop_toTopOf="@+id/stop" />
+
+
+            <Button
+                android:id="@+id/ffw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg"
+                android:drawableStart="@android:drawable/ic_media_ff"
+                android:onClick="@{()->mp3view.fastforward()}"
+                android:text="@string/string_ffw"
+                android:textColor="@android:color/holo_purple"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rw"
+                app:layout_constraintTop_toTopOf="@+id/rw" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/stop"
+                app:layout_constraintEnd_toStartOf="@+id/next"
+                app:layout_constraintStart_toEndOf="@+id/prev"
+                app:layout_constraintTop_toTopOf="@+id/prev">
+
+                <TextView
+                    android:id="@+id/elapsed_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@{mp3view.observer.timeElapsed}"
+                    android:textAlignment="textStart"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/total_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@{mp3view.observer.totalTime}"
+                    android:textAlignment="textEnd"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+</layout>
